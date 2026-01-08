@@ -1,86 +1,62 @@
-# Software Architect | .NET & TypeScript
+# Tech Lead / Staff Engineer
 
-Building enterprise-grade distributed systems with **Clean Architecture**, **Domain-Driven Design**, and **Actor Model** patterns since 2006.
+20 years designing and building enterprise software. I specialize in turning complex business problems into scalable distributed systems.
 
-## Tech Stack
+## Current Focus
 
-```text
-Backend         .NET 8 | ASP.NET Core | Microsoft Orleans | .NET Aspire | Blazor
-Frontend        TypeScript | React | Astro | PWA
-Architecture    Clean Architecture | Modular Monolith | DDD | CQRS | Event Sourcing
-Distributed     Orleans Grains | Broadcast Channels | Temporal Partitioning | Tiered Storage
-Database        PostgreSQL | Azure Table Storage | Entity Framework Core
-DevOps          Docker | GitHub Actions | Azure
-Patterns        MediatR | FastEndpoints | FluentValidation | Result Pattern
-```
+Leading architecture decisions for multi-tenant platforms using **.NET**, **Microsoft Orleans**, and **event-driven architectures**. I design systems that handle thousands of concurrent conversations with sub-millisecond latency using the Actor Model, Event Sourcing, and CQRS patterns.
 
-## Architectural Expertise
+## How I Approach Problems
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      Presentation                            │
-│           (FastEndpoints / Blazor / React / SSE)            │
-├─────────────────────────────────────────────────────────────┤
-│                      Application                             │
-│              (CQRS Commands/Queries + MediatR)              │
-├─────────────────────────────────────────────────────────────┤
-│                        Domain                                │
-│       (Aggregates, Value Objects, Domain Events, DDD)       │
-├─────────────────────────────────────────────────────────────┤
-│                    Infrastructure                            │
-│   (Orleans Grains, EF Core, External APIs, Message Brokers) │
-└─────────────────────────────────────────────────────────────┘
-```
+I believe good architecture emerges from understanding the domain first. My systems are built on:
 
-## What I Build
+- **Domain-Driven Design** — Business logic lives in the domain, not in controllers or databases
+- **Event Sourcing** — Every state change is an immutable event. Full audit trails, time-travel debugging, analytics from event streams
+- **Actor Model (Orleans)** — Each entity is an independent actor. No locks, no race conditions, horizontal scaling built-in
+- **Tiered Storage** — Hot data in memory, warm data in database. Automatic archival with temporal partitioning by day
 
-**Distributed Systems with Orleans**
-Actor-based architectures using Microsoft Orleans virtual actors (Grains), broadcast channels for pub/sub, and tiered storage strategies with hot/warm data separation.
+## What I've Built
 
-**Event-Sourced Platforms**
-Complete event sourcing implementations with temporal partitioning, event replay capabilities, and analytics reconstruction from event streams.
+### Enterprise CRM Platform
+A multi-tenant conversation management system handling WhatsApp, Instagram, and other messaging platforms.
 
-**Multi-Tenant Enterprise Systems**
-Modular monolith platforms with domain-driven design, CQRS patterns, workflow engines, and distributed cache invalidation.
+**The challenge:** Route thousands of customer conversations through customizable workflows while maintaining real-time analytics and full audit compliance.
 
-**Real-Time Applications**
-Full-stack dashboards with Blazor, Server-Sent Events (SSE), and live analytics integration.
+**The solution:**
+- **Orleans Grains** for conversation state (ConversationGrain, InboxGrain, CardGrain, WorkflowGrain)
+- **Event Sourcing** with hot storage (100 events in-memory) and warm archive (partitioned by day)
+- **Broadcast Channels** for decoupled event distribution across the system
+- **Workflow Engine** with kanban-style stages, cycle management, and load balancing (round-robin, weighted, least-busy)
+- **Platform Strategy Pattern** abstracting messaging platform differences (24-hour windows, templates, capabilities)
 
-## Advanced Patterns I Implement
-
-| Pattern | Implementation |
-|---------|----------------|
-| **Actor Model** | Orleans Grains with single-threaded execution, location transparency |
-| **Event Sourcing** | Immutable event streams, state reconstruction, audit trails |
-| **Temporal Partitioning** | Archive grains partitioned by day for efficient date-range queries |
-| **Tiered Storage** | Hot storage (in-memory) + Warm storage (database) with auto-archival |
-| **Broadcast Channels** | Decoupled pub/sub for cross-grain event distribution |
-| **Platform Strategy** | Abstracted platform-specific logic (WhatsApp, Instagram, etc.) |
-| **Workflow System** | Kanban-style card progression with cycles, stages, and load balancing |
-| **Distributed Cache** | Cross-module cache invalidation via domain events |
-
-## Featured Work
-
-### CRM Platform (Enterprise)
-Multi-tenant CRM with Microsoft Orleans, event sourcing, and workflow automation. Features conversation grains, inbox management, and real-time analytics with temporal partitioning.
-
-`Microsoft Orleans` `Event Sourcing` `CQRS` `Temporal Partitions` `Broadcast Channels` `Azure Table Storage`
+**Scale:** 2,400+ source files, modular monolith architecture, real-time SSE updates, distributed cache invalidation.
 
 ### Income Dashboard
-Clean Architecture dashboard with Blazor SSR, modular monolith design, and crypto API integrations. Demonstrates modern .NET 8 patterns with Docker deployment.
-
-`ASP.NET Core` `Blazor` `Clean Architecture` `Docker` `Modular Monolith`
+Clean Architecture implementation with Blazor SSR demonstrating modular monolith patterns and external API integrations.
 
 ### Modular Monolith Template
-Production-ready .NET 8 template for building scalable applications. Includes module scaffolding, validation, and endpoint patterns.
+Open-source .NET 8 template that jumpstarts projects with Clean Architecture, FastEndpoints, MediatR, and FluentValidation.
 
-`ASP.NET Core` `MediatR` `FastEndpoints` `FluentValidation` `.NET 8`
+## Technical Depth
+
+```
+Distributed Systems    Orleans Grains | Broadcast Channels | Temporal Partitioning
+Architecture           Clean Architecture | Modular Monolith | DDD | CQRS
+Event-Driven           Event Sourcing | Domain Events | Tiered Storage
+Backend                .NET 8 | ASP.NET Core | .NET Aspire | Blazor | EF Core
+Frontend               TypeScript | React | Astro | PWA
+Infrastructure         Docker | Azure | PostgreSQL | Azure Table Storage
+```
+
+## Philosophy
+
+Ship working software. Avoid premature abstraction. Let the domain drive the design. Document decisions, not just code.
 
 ---
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
-![Microsoft Orleans](https://img.shields.io/badge/Orleans-512BD4?style=flat-square&logo=dotnet&logoColor=white)
+![Orleans](https://img.shields.io/badge/Orleans-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Blazor](https://img.shields.io/badge/Blazor-512BD4?style=flat-square&logo=blazor&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
