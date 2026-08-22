@@ -1,4 +1,4 @@
-# Tech Lead / Staff Engineer
+# Tech Lead
 
 20 years designing and building enterprise software. I specialize in turning complex business problems into scalable distributed systems.
 
