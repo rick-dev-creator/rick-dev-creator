@@ -84,6 +84,7 @@ y hoy no tienes forma de saber cuál tienes.
 ```
 Position
 ├── Asset                  símbolo + clase (reutiliza el Asset del módulo 1)
+├── Activity               Trading | Investing (debe coincidir con la proyección enlazada)
 ├── Direction              Long | Short
 ├── OpenedAt               fecha de entrada
 ├── EntryPrice             precio de entrada

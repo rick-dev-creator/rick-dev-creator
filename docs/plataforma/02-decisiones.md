@@ -30,6 +30,8 @@
 | **DT-10** | **El copy trading se delega a los exchanges** (master trader nativo). Cierra D17 | 4 | Mismo beneficio, cero riesgo legal, cero ingeniería. El exchange es la entidad regulada (doc 40 §2) |
 | **DT-11** | Los **avisos de inversión** van a Discord y son beneficio de tier alto, **no públicos**. Cierra D19 | 5 | La prueba es pública, la oportunidad es de pago (PG6) |
 | **DT-12** | La primera herramienta diferenciadora es la **escalera de órdenes piramidal visual** | 3 | Usa órdenes nativas: funciona con keys en cliente y sobrevive a caídas (doc 35 §2) |
+| **DT-13** | El terminal se justifica por **mejorar tu performance**, no por ahorrar suscripciones | 3 | Instrumento personal primero, producto después. Da un criterio de éxito medible vía módulo 2 |
+| **DT-14** | **Actividad (Trading / Investing) es dimensión de primera clase** en los módulos 1, 2 y 3 | 1+2+3 | Derivada de DT-13: son disciplinas con horizontes y R incomparables. Mezclarlas da métricas falsas (PG7). Barata ahora, migración después |
 
 ---
 
@@ -72,6 +74,7 @@
 | ID | Decisión | Mód. | Impacto | Decide |
 |---|---|---|---|---|
 | **D23** | **El resto de herramientas diferenciadoras** (ver §4) | 3 | **Alto** — es la tesis del módulo 3. Parcialmente resuelta por DT-12 | Tú |
+| **D29** | **¿Qué fallo de performance se ataca primero?** (ver §4) | 3 | **Alto** — define el MVP del módulo 3 y, de rebote, resuelve D11 | Tú |
 | **D11** | **API keys en cliente o en servidor** | 3 | **Máximo** — define el perfil de riesgo entero del SaaS | Tú + seguridad |
 | **D13** | Librería de charting y su licencia | 3 | Alto — **bloqueo externo, tramitar con antelación** | Tú |
 | **D12** | Qué exchanges en la etapa 5 y en qué orden | 3 | Alto — empezar por aquel donde más operas | Tú |
@@ -121,6 +124,19 @@ Para cada una bastan cuatro respuestas (doc 35 §3), y **la tercera es la que m�
 ¿usa órdenes nativas del exchange, o requiere lógica viva en servidor? Eso determina si cae
 del lado barato y seguro de D11 o del caro y arriesgado. Si resultan ser casi todas
 nativas, el módulo 3 es mucho menos arriesgado de lo que parecía.
+
+### D29 — qué fallo de performance se ataca primero
+
+Las herramientas existen para corregir fallos concretos de tu operativa, no para completar
+un terminal. Doc 35 §4 las agrupa en cinco categorías: calidad de ejecución,
+dimensionamiento, disciplina, carga cognitiva y atención/latencia.
+
+**Las cuatro primeras no requieren lógica viva en servidor. La quinta sí.** Por eso esta
+decisión arrastra a D11: si tus herramientas atacan las cuatro primeras —lo típico en un
+operador discrecional— el módulo 3 se construye con keys en cliente, sin custodia y sin
+responsabilidad de ejecución.
+
+**Enumerar tus herramientas por el fallo que corrigen, antes de diseñar nada.**
 
 ### D24 — umbral de calificación por volumen
 

@@ -158,6 +158,7 @@ registrar proyecciones legítimas — y una proyección no registrada es peor qu
 | Campo | Obligatorio | Por qué existe |
 |---|---|---|
 | Activo | Sí | Qué se analiza |
+| **Actividad** | **Sí** | **Trading o Investing.** Son dos disciplinas con horizontes, R y tasas de acierto incomparables. Mezclarlas en un mismo scorecard produce métricas sin significado |
 | Timeframe | Sí | 1H / 4H / 1D / 1W. Contexto del análisis y base del horizonte por defecto |
 | Dirección | Sí | Alcista / Bajista |
 | Precio de referencia | Sí | Precio al momento de publicar. Ancla para medir R y progreso |
@@ -316,7 +317,11 @@ técnico; conceptualmente lo que importa es que el modelo **no asuma un proveedo
 
 ### 7.1 Métricas básicas
 
-- Hit rate global y desglosado por activo, clase de activo, timeframe y dirección.
+**Toda métrica se segmenta primero por actividad (trading / investing).** Un hit rate que
+mezcla una entrada de 4H con una tesis de doce meses no dice nada sobre ninguna de las dos.
+El número global existe, pero el que se lee es el segmentado.
+
+- Hit rate global y desglosado por actividad, activo, clase de activo, timeframe y dirección.
 - Distribución de resultados: Hit / Parcial / Invalidada / Expirada.
 - Mediana de tiempo hasta resolución.
 - Rachas actuales y máximas.

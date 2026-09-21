@@ -25,6 +25,7 @@ Un módulo dice *qué*, una etapa dice *cuándo*.
 
 | Término | Significado |
 |---|---|
+| **Actividad** | **Trading** o **Investing**. Dimensión transversal a los módulos 1, 2 y 3: separa dos disciplinas con horizontes y métricas incomparables |
 | **Proyección** | Afirmación pública y falsable sobre un activo. Inmutable al publicarse |
 | **Posición** | Operación real tuya en un exchange. Privada, editable |
 | **Invalidación** | Precio que, al romperse, mata la tesis de una proyección |
@@ -88,6 +89,12 @@ técnica y no se toma en un documento de ingeniería.
 El programa jamás mantiene fondos de terceros ni solicita permisos de retiro en ninguna API
 key. Las claves de exchange se piden siempre con permisos mínimos y, donde exista,
 whitelist de IP. Este principio no tiene excepciones ni casos especiales.
+
+### PG7 — Trading e investing nunca se mezclan en una métrica
+
+Son dos disciplinas distintas, con horizontes, R y tasas de acierto que no se comparan. Toda
+métrica, scorecard e informe se segmenta por actividad antes de agregarse. Un número que las
+mezcla no es una simplificación: es un número falso.
 
 ### PG6 — La prueba es pública, la oportunidad es de pago
 

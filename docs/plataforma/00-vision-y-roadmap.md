@@ -54,6 +54,30 @@ Dos consecuencias que conviene tener presentes:
 
 ---
 
+## 1.bis El otro circuito: el bucle de performance
+
+El embudo de §1 es el lado de negocio. Hay un segundo circuito, personal, que es el que
+vuelve coherentes los módulos 1, 2 y 3 en vez de tres productos sueltos:
+
+```
+   Módulo 1  ──►  Módulo 3  ──►  Módulo 2  ──┐
+   lo que         lo que         ¿coincidieron?  │
+   dijiste        hiciste        ¿por qué no?    │
+      ▲                                          │
+      └──────────────────────────────────────────┘
+          mejores tesis y mejores herramientas
+```
+
+El terminal existe **para mejorar tu performance**, en investing y en trading. Pero una
+herramienta no mejora nada por sí sola: la mejora sale de cerrar el circuito. Por eso el
+módulo 2, que parecía el más prescindible, es el que convierte al 3 en una inversión
+medible en lugar de un capricho — es el único que puede decir si la herramienta sirvió.
+
+Y da al módulo 3 un criterio de éxito que casi ningún producto tiene: **¿mejoró tu
+performance?**, con números en vez de con sensación.
+
+---
+
 ## 2. Una tensión que hay que resolver explícitamente
 
 El objetivo dice **"donde posteo mis trades, vean cómo invierto y tradeo"**. El módulo 2 se
