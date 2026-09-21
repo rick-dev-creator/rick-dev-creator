@@ -27,12 +27,15 @@
 | **DT-7** | El módulo 2 es un **ledger acotado**, no un portfolio tracker | 2 | ~15% del trabajo y ~90% del valor. Evita cost basis, tax lots, transferencias y fees |
 | **DT-8** | El módulo 2 cubre las tres clases con **fuentes gratuitas** | 2 | Solo necesita precio actual y cierre diario, cubierto gratis en las tres (doc 90 §5) |
 | **DT-9** | **Planeación conceptual antes que técnica** | Todos | Las reglas de resolución son el 80% del riesgo del producto |
+| **DT-10** | **El copy trading se delega a los exchanges** (master trader nativo). Cierra D17 | 4 | Mismo beneficio, cero riesgo legal, cero ingeniería. El exchange es la entidad regulada (doc 40 §2) |
+| **DT-11** | Los **avisos de inversión** van a Discord y son beneficio de tier alto, **no públicos**. Cierra D19 | 5 | La prueba es pública, la oportunidad es de pago (PG6) |
+| **DT-12** | La primera herramienta diferenciadora es la **escalera de órdenes piramidal visual** | 3 | Usa órdenes nativas: funciona con keys en cliente y sobrevive a caídas (doc 35 §2) |
 
 ---
 
 ## 3. Decisiones abiertas
 
-### 3.1 Bloquean la etapa 1 — hay que cerrarlas ya
+### 3.1 Bloquean la etapa 1 — módulo 1, hay que cerrarlas ya
 
 | ID | Decisión | Mód. | Impacto | Decide |
 |---|---|---|---|---|
@@ -45,7 +48,17 @@
 | **D6** | Dominio público del sitio | 1 | Bajo | Tú |
 | **D22** | **Nombre del programa** y de la plataforma | Todos | Bajo técnicamente, alto para marca | Tú |
 
-### 3.2 Bloquean la etapa 2
+### 3.2 Bloquean las etapas 2 y 3 — módulo 5, es donde está el dinero
+
+| ID | Decisión | Mód. | Impacto | Decide |
+|---|---|---|---|---|
+| **D24** | **Umbral de calificación por volumen** (ver §4) | 5 | **Alto** — un umbral alto empuja a tu comunidad a operar de más | Tú |
+| **D26** | ¿Patreon se mantiene, se sustituye por suscripción propia, o conviven? | 5 | **Alto** — parte de tu base no podrá calificar por volumen (doc 50 §4) | Tú |
+| **D28** | Matriz de beneficios por tier: qué desbloquea cada nivel | 5 | Alto — define el producto de membresía | Tú |
+| **D27** | Qué exchanges se integran primero para verificar afiliación | 5 | Medio — OKX es el mejor documentado | Tú |
+| **D25** | TradingView: ¿semi-automático o automatizado? | 5 | Medio — automatizar exige desactivar tu 2FA (ver §4) | Tú |
+
+### 3.3 Bloquean la etapa 4 — módulo 2
 
 | ID | Decisión | Mód. | Impacto | Decide |
 |---|---|---|---|---|
@@ -54,26 +67,24 @@
 | **D9** | ¿El % se captura a mano o se deriva de un valor total declarado? | 2 | Medio — a mano evita rastrear depósitos y retiros | Tú |
 | **D10** | ¿Se importa histórico de posiciones pasadas? | 2 | Bajo — al ser privado no hay problema de credibilidad | Tú |
 
-### 3.3 Bloquean la etapa 3 y posteriores
+### 3.4 Bloquean las etapas 5 a 7 — módulo 3
 
 | ID | Decisión | Mód. | Impacto | Decide |
 |---|---|---|---|---|
+| **D23** | **El resto de herramientas diferenciadoras** (ver §4) | 3 | **Alto** — es la tesis del módulo 3. Parcialmente resuelta por DT-12 | Tú |
 | **D11** | **API keys en cliente o en servidor** | 3 | **Máximo** — define el perfil de riesgo entero del SaaS | Tú + seguridad |
 | **D13** | Librería de charting y su licencia | 3 | Alto — **bloqueo externo, tramitar con antelación** | Tú |
-| **D12** | Qué exchanges en la etapa 3 y en qué orden | 3 | Alto — empezar por aquel donde más operas | Tú |
+| **D12** | Qué exchanges en la etapa 5 y en qué orden | 3 | Alto — empezar por aquel donde más operas | Tú |
 | **D14** | ¿Spot, futuros, o ambos? | 3 | Alto — futuros multiplica la complejidad (margen, liquidación, funding) | Tú |
-| **D16** | ¿La etapa 3 alimenta automáticamente el ledger del módulo 2? | 2+3 | Medio — sinergia evidente, pero acopla los módulos | Tú |
-| **D23** | **¿Cuáles son las herramientas diferenciadoras del terminal?** | 3 | **Alto** — es la tesis del módulo 3 y hoy no está definida | Tú |
+| **D16** | ¿La etapa 5 alimenta automáticamente el ledger del módulo 2? | 2+3 | Medio — sinergia evidente, pero acopla los módulos | Tú |
 
-### 3.4 Requieren asesoría legal — no se deciden en un documento técnico
+### 3.5 Requieren asesoría legal — no se deciden en un documento técnico
 
 | ID | Decisión | Mód. | Impacto | Decide |
 |---|---|---|---|---|
-| **D15** | Jurisdicción de la entidad que opera el SaaS | 3 | **Bloqueante** para la etapa 5 | Abogado |
-| **D17** | Copy trading: ¿master trader nativo o construcción propia? | 4 | **Máximo** — recomendación fuerte: nativo | Tú + abogado |
-| **D18** | Marco regulatorio aplicable al copy trading | 4 | **Bloqueante** para cualquier opción propia | Abogado |
-| **D19** | ¿Feed de señales en el terminal? | 4 | Alto — el punto medio con mejor relación valor/riesgo | Tú + abogado |
-| **D20** | Forma y ubicación de la divulgación del reparto de fees | 3+4 | Alto — obligatoria en cualquier escenario (PG3) | Tú + abogado |
+| **D15** | Jurisdicción de la entidad que opera el SaaS | 3 | **Bloqueante** para la etapa 7 | Abogado |
+| **D18** | Marco regulatorio aplicable si algún día se construye copy trading | 4 | Latente — DT-10 lo aplaza, no lo elimina | Abogado |
+| **D20** | Forma y ubicación de la divulgación del reparto de fees | 3+5 | Alto — obligatoria en cualquier escenario (PG3) | Tú + abogado |
 
 ---
 
@@ -97,18 +108,41 @@ automatización, pero te convierte en un blanco de altísimo valor y una brecha 
 de extinción. Desarrollada en doc 30 §3.
 
 **Recomendación: empezar en cliente**, y mover a servidor solo la funcionalidad que lo
-exija de verdad, con keys separadas y permisos mínimos.
+exija de verdad, con keys separadas y permisos mínimos. **DT-12 la refuerza**: la escalera
+piramidal usa órdenes nativas del exchange, así que la herramienta insignia no obliga a la
+arquitectura arriesgada.
 
-### D23 — las herramientas diferenciadoras
+### D23 — el resto de herramientas diferenciadoras
 
-Declaradas como intención ("herramientas que no he visto en otras apps") pero nunca
-descritas. Es la tesis de valor del módulo 3 y **puede reordenar el roadmap**: si son el
-motivo real por el que alguien vendría, el MVP del módulo 3 no es un terminal completo sino
-esa herramienta, y podría vivir sobre la agregación de solo lectura sin tocar órdenes.
+**Parcialmente resuelta.** DT-12 fija la primera: la escalera de órdenes piramidal visual,
+descrita en doc 35 §2. Faltan las demás, declaradas como intención pero sin describir.
 
-**Siguiente paso: nombrarlas y describirlas.** Merecen su propio documento (`50-`).
+Para cada una bastan cuatro respuestas (doc 35 §3), y **la tercera es la que más importa**:
+¿usa órdenes nativas del exchange, o requiere lógica viva en servidor? Eso determina si cae
+del lado barato y seguro de D11 o del caro y arriesgado. Si resultan ser casi todas
+nativas, el módulo 3 es mucho menos arriesgado de lo que parecía.
 
----
+### D24 — umbral de calificación por volumen
+
+La decisión más delicada del módulo 5, y no por razones técnicas. **Si el acceso depende del
+volumen operado, le das a tu comunidad un incentivo directo para operar de más** — malo para
+ellos y, a la larga, malo para tu credibilidad, que es el activo del que cuelga todo (PG1).
+
+**Recomendación: calificar por tener cuenta activa bajo tu referido con un umbral mínimo y
+simbólico, y nunca escalar beneficios con el volumen.** El ingreso de afiliado viene del
+agregado de muchos usuarios, no de exprimir a unos pocos, así que un umbral bajo te da casi
+lo mismo sin empujar a nadie.
+
+### D25 — automatización de TradingView
+
+No hay API oficial para gestionar acceso a scripts *invite-only*. La vía automatizada
+conocida usa endpoints no soportados y **exige desactivar el 2FA de tu cuenta de vendedor**,
+además de guardar sus credenciales en tu servidor.
+
+**Recomendación: semi-automático.** El sistema calcula quién debería tener acceso y produce
+la cola de trabajo con el diff; tú haces los clics. Automatizas lo difícil —saber quién
+califica, que hoy nadie sabe— y no automatizas lo peligroso. Coste: un par de minutos por
+semana.
 
 ## 5. Decisiones que ya no se tomarán
 
@@ -121,3 +155,6 @@ Registradas para no reabrir discusiones cerradas.
 | Leer el portfolio desde la API de CoinGecko | **No existe ese endpoint.** La API sirve datos de mercado, no holdings de usuario (doc 90 §2) |
 | Alpha Vantage como proveedor de datos | 25 llamadas/día en el plan gratuito. Inservible (doc 90 §3) |
 | Estado "Superseded" para proyecciones | Sería la puerta trasera para retirar las perdedoras antes de que fallen (doc 10 §4.4) |
+| Construir copy trading propio | DT-10. Actividad regulada en la mayoría de jurisdicciones; los exchanges ya lo ofrecen y son la entidad regulada |
+| Automatizar TradingView por completo | Exige desactivar el 2FA de la cuenta que contiene tu propiedad intelectual, sobre endpoints no soportados (D25) |
+| El terminal justificado por ahorrar suscripciones | Una suscripción cuesta mucho menos que los meses de ingeniería. Lo que lo justifica son las herramientas propias (doc 35 §1) |

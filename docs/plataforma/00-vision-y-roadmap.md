@@ -9,30 +9,38 @@
 | [10](./10-modulo-1-proyecciones.md) | Módulo 1 — Proyecciones (público, inmutable) |
 | [20](./20-modulo-2-ledger.md) | Módulo 2 — Ledger de posiciones (privado) |
 | [30](./30-modulo-3-terminal.md) | Módulo 3 — Terminal multi-exchange |
+| [35](./35-herramientas-diferenciadoras.md) | Herramientas diferenciadoras del terminal |
 | [40](./40-modulo-4-copy-trading.md) | Módulo 4 — Copy trading (futuro) |
+| [50](./50-modulo-5-membresias.md) | Módulo 5 — Membresías y accesos |
 | [90](./90-fuentes-de-datos.md) | Fuentes de datos de mercado (transversal) |
 
 ---
 
-## 1. Esto no son cuatro apps: es un embudo
+## 1. Esto no son cinco apps: es un embudo
 
 El objetivo declarado es que la comunidad vea el valor de la plataforma, vea cómo inviertes
-y operas, use tus exchanges y use las herramientas. Eso no describe cuatro productos
-separados. Describe **un solo embudo con cuatro etapas**, donde cada una alimenta la
-siguiente:
+y operas, use tus exchanges y use las herramientas. Eso no describe productos separados.
+Describe **un embudo con una frontera de pago en medio**:
 
 ```
-  Módulo 1          →   Feed de trades   →     Módulo 3        →   Fees de
-  Proyecciones          Ver cómo operas        Terminal            afiliado
-  públicas              en vivo                gratis operando
-  ───────────           ───────────            ───────────         ───────────
-  CREA CONFIANZA        CREA DESEO             CREA RETENCIÓN      MONETIZA
-  "acierta y            "quiero seguir         "vivo aquí          "opero bajo
-   puedo verificarlo"    lo que hace"           todos los días"     su referido"
-
-                         Módulo 2 (privado) alimenta al 1: mejora tu TA
-                         Suscripción: monetiza a quien no opera bajo tu referido
+  PÚBLICO Y GRATIS           │  RESERVADO A MIEMBROS
+  ───────────────────────────┼──────────────────────────────────────────────
+  Módulo 1                   │  Avisos en tiempo real      Módulo 3
+  Proyecciones y su récord   │  Canales privados           Terminal
+  verificable                │  Indicadores de TradingView (gratis operando)
+                             │
+  CREA CONFIANZA             │  CREA VALOR                 CREA RETENCIÓN
+  "acierta, y lo verifico"   │  "quiero esto ahora"        "vivo aquí"
+  ───────────────────────────┴──────────────────────────────────────────────
+     Módulo 5 — Membresías ES la frontera: decide quién pasa y por qué vía
+     Módulo 2 (privado) alimenta al módulo 1: mejora tu TA
+                             ↓
+          Fees de afiliado   >   Suscripción propia   >   Patreon
 ```
+
+**Lo que demuestra credibilidad es público; lo que tiene valor de oportunidad es de pago.**
+Regalar el récord es lo que vuelve creíble el producto de pago; cobrar por el récord mataría
+el embudo entero (doc 50 §7).
 
 Dos consecuencias que conviene tener presentes:
 
@@ -65,9 +73,12 @@ entradas, salidas, gestión del stop, cuándo te sales antes de tiempo, cuándo 
 > "Entré ETH largo en 3,200, stop en 3,050, 6% del portfolio" enseña todo.
 > "Tengo $340,000 en ETH" no enseña nada y te pone en riesgo.
 
-**Resolución: el ledger del módulo 2 se queda privado. El feed público de trades es una cosa
+**Resolución: el ledger del módulo 2 se queda privado. El feed de trades es una cosa
 aparte** — sin montos absolutos, con tamaño en % — y **no sale del módulo 2: sale del
 módulo 3a.**
+
+Y no es público: el feed en tiempo real y los avisos de inversión son **beneficio de
+miembros** (doc 50 §7). Lo público y gratuito es el récord resuelto del módulo 1.
 
 Eso último importa mucho. Un feed alimentado por la lectura directa de tus exchanges es
 **verificado automáticamente**, no declarado a mano. Es la misma diferencia de credibilidad
@@ -78,36 +89,51 @@ de raíz el problema que hizo descartar un portfolio público manual.
 
 ## 3. Secuencia recomendada
 
-El orden está elegido para que cada etapa sea útil por sí sola y reduzca el riesgo de la
-siguiente.
+El orden está elegido para que cada etapa sea útil por sí sola (PG2) y reduzca el riesgo de
+la siguiente. **Se reordenó al aparecer el módulo 5**, que toca el objetivo de negocio antes
+que nada de lo demás.
 
 ### Etapa 1 — Módulo 1 en producción `← empezar aquí`
 Proyecciones públicas, motor de resolución, scorecard, modo stream, bot notificador.
 Validado con crypto primero (doc 90 §5).
 **Criterio de salida:** lo usas en tus lives y el récord crece solo cada semana.
 
-### Etapa 2 — Módulo 2 privado
-Ledger acotado y, sobre todo, el informe de coherencia. Barato porque no añade
-dependencias de datos.
+### Etapa 2 — Módulo 5a: membresías sin exchanges
+Registro de miembros, derechos con caducidad, roles de Discord automáticos, reconciliación
+y revocación, cola de TradingView. **No toca ningún exchange.**
+Barato, quita trabajo manual y tapa la fuga de accesos de gente que dejó de pagar.
+Puede ir en paralelo con la etapa 1: no comparten casi nada.
+**Criterio de salida:** ningún rol de Discord existe sin un derecho vigente que lo respalde.
+
+### Etapa 3 — Módulo 5b: verificación de volumen de afiliado
+Integración con los programas de afiliado, vinculación UID ↔ Discord, calificación por
+volumen. **Es la etapa que activa el objetivo declarado**: mover de Patreon a fees.
+**Criterio de salida:** un miembro nuevo puede desbloquear acceso operando bajo tu referido,
+sin que tú toques nada.
+
+### Etapa 4 — Módulo 2 privado
+Ledger acotado y, sobre todo, el informe de coherencia. Barato porque no añade dependencias
+de datos.
 **Criterio de salida:** puedes responder "¿respeté mi invalidación?" con un número.
 
-### Etapa 3 — Módulo 3a: agregación de solo lectura
+### Etapa 5 — Módulo 3a: agregación de solo lectura
 Tus cuentas, todos los exchanges, una pantalla. Sin ejecutar órdenes.
-Valida lo difícil (conectividad, normalización, reconciliación) sin riesgo, **y habilita
-el feed público de trades de §2**, que es lo que el objetivo pide.
-**Criterio de salida:** el feed lleva semanas publicando tus operaciones sin errores.
+Valida lo difícil (conectividad, normalización, reconciliación) sin riesgo, **y habilita los
+avisos en tiempo real para miembros**, que hasta aquí se mandan a mano.
+**Criterio de salida:** lleva semanas reflejando tus posiciones sin errores.
 
-### Etapa 4 — Módulo 3b: ejecución, solo para ti
-Órdenes, SL/TP visual. Un usuario: tú, con tu dinero.
+### Etapa 6 — Módulo 3b: ejecución, solo para ti
+Órdenes, SL/TP visual y **la primera herramienta diferenciadora** (doc 35): la escalera
+piramidal. Un usuario: tú, con tu dinero.
 **Criterio de salida:** meses operando en serio sin un solo fallo de ejecución.
 
-### Etapa 5 — Módulo 3c: SaaS multi-usuario
-Keys de terceros, afiliación, suscripciones, soporte, on-call. **Aquí el proyecto se
-convierte en empresa.** Requiere asesoría legal previa.
+### Etapa 7 — Módulo 3c: SaaS multi-usuario
+Keys de terceros, suscripciones, soporte, on-call. **Aquí el proyecto se convierte en
+empresa.** Requiere asesoría legal previa (PG4).
 
-### Módulo 4 — probablemente no se construye
-Hazte *master trader* en el copy trading nativo de los exchanges con los que ya tienes
-partnership. Mismo beneficio, cero riesgo legal, cero ingeniería (doc 40 §2).
+### Módulo 4 — no se construye
+Decidido (DT-10): *master trader* en el copy trading nativo de los exchanges con los que ya
+tienes partnership. Mismo beneficio, cero riesgo legal, cero ingeniería (doc 40 §2).
 
 ---
 
