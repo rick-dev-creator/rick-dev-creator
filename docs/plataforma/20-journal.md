@@ -1,6 +1,8 @@
-# Módulo 2 — Ledger de Posiciones (privado)
+# Journal — Módulo 2
 
-> Documento conceptual. Depende de [10-modulo-1-proyecciones.md](./10-modulo-1-proyecciones.md).
+> Registro privado de tus posiciones. Auto-diagnóstico, no portfolio tracker.
+
+> Documento conceptual. Depende de [10-calls.md](./10-calls.md).
 > Fuentes de precios en [90-fuentes-de-datos.md](./90-fuentes-de-datos.md).
 
 ---
@@ -41,7 +43,7 @@ CoinStats sabe tu P&L. No sabe que el 12 de marzo proyectaste ETH alcista con in
 en 2,800, y por lo tanto no puede decirte que el precio rompió 2,800 el día 19 y tú
 seguiste dentro tres semanas más.
 
-El valor del módulo 2 está **entero en el cruce con el módulo 1**. El ledger es solo la
+El valor del módulo 2 está **entero en el cruce con el módulo 1**. El journal es solo la
 infraestructura mínima para calcular ese cruce.
 
 ---
@@ -124,7 +126,7 @@ temporal), pero **nunca lo crea solo**. Confirmarlo es un clic.
 
 ### 4.4 Razón de salida
 
-Campo cerrado, no texto libre. Es lo que convierte el ledger en una herramienta de
+Campo cerrado, no texto libre. Es lo que convierte el Journal en una herramienta de
 diagnóstico:
 
 | Razón | Qué revela |
@@ -196,14 +198,14 @@ Todo detrás del mismo login de admin del módulo 1. **Nada de esto es público.
 
 ## 8. Una previsión barata ahora, cara después
 
-El ledger es privado y así se queda. Pero las **métricas agregadas** de §3 sí son
+El journal es privado y así se queda. Pero las **métricas agregadas** de §3 sí son
 publicables algún día sin revelar una sola posición:
 
 > "Respeté mi nivel de invalidación en el 78% de las operaciones."
 
 Eso refuerza el récord público del módulo 1 y no expone nada: ni montos, ni activos, ni
 patrimonio. Por eso el tamaño va en % (§4.2) y por eso las métricas se calculan como
-agregados derivados, separados del ledger crudo.
+agregados derivados, separados del Journal crudo.
 
 **No se construye nada de esto en el módulo 2.** Solo se evita cerrarse la puerta, que hoy
 cuesta cero y después cuesta una migración.
@@ -220,7 +222,7 @@ desincronicen.
 
 ## 10. Relación con el módulo 1
 
-| | Módulo 1 — Proyecciones | Módulo 2 — Ledger |
+| | Módulo 1 — Proyecciones | Módulo 2 — Journal |
 |---|---|---|
 | **Visibilidad** | Público | Privado |
 | **Mutabilidad** | Inmutable tras publicar | Editable siempre |

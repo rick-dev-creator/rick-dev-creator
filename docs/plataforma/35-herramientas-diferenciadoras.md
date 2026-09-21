@@ -1,4 +1,4 @@
-# Herramientas diferenciadoras del terminal
+# Herramientas diferenciadoras de Desk
 
 > Resuelve parcialmente **D23**. Es la tesis de valor del módulo 3.
 > Documento abierto — falta enumerar el resto de herramientas (§4).

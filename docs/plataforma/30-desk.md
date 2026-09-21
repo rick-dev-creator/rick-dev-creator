@@ -1,4 +1,6 @@
-# Módulo 3 — Terminal de Trading Multi-Exchange
+# Desk — Módulo 3
+
+> Terminal multi-exchange con tus herramientas de performance.
 
 > Documento de evaluación estratégica, no especificación. El módulo 3 no es el siguiente
 > paso de los módulos 1 y 2: es un producto distinto, con modelo de negocio, riesgo legal y
@@ -154,7 +156,7 @@ con **cero riesgo de ejecución y cero responsabilidad**. Si esto no funciona bi
 lo demás importa. Y por sí solo ya te resuelve un dolor real.
 
 Bonus: alimenta el módulo 2 automáticamente. Las posiciones que hoy capturarías a mano en
-el ledger podrían entrar solas.
+el Journal podrían entrar solas.
 
 ### 3b — Ejecución, solo para ti
 

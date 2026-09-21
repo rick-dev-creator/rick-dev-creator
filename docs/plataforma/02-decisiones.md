@@ -24,13 +24,15 @@
 | **DT-4** | El módulo 1 incluye **bot notificador de Discord**, sin captura vía Discord | 1 | Alto valor para la comunidad y bajo coste. La captura es demasiado rica para un modal de Discord |
 | **DT-5** | El módulo 2 es **privado**, no público | 2 | Elimina de golpe exposición patrimonial, perfil regulatorio y el requisito de verificabilidad |
 | **DT-6** | El módulo 2 usa **captura manual** y la API pública de CoinGecko para precios | 2 | Al ser privado no hay incentivo para falsear. Verificación automática deja de ser requisito |
-| **DT-7** | El módulo 2 es un **ledger acotado**, no un portfolio tracker | 2 | ~15% del trabajo y ~90% del valor. Evita cost basis, tax lots, transferencias y fees |
+| **DT-7** | El módulo 2 es un **journal acotado**, no un portfolio tracker | 2 | ~15% del trabajo y ~90% del valor. Evita cost basis, tax lots, transferencias y fees |
 | **DT-8** | El módulo 2 cubre las tres clases con **fuentes gratuitas** | 2 | Solo necesita precio actual y cierre diario, cubierto gratis en las tres (doc 90 §5) |
 | **DT-9** | **Planeación conceptual antes que técnica** | Todos | Las reglas de resolución son el 80% del riesgo del producto |
 | **DT-10** | **El copy trading se delega a los exchanges** (master trader nativo). Cierra D17 | 4 | Mismo beneficio, cero riesgo legal, cero ingeniería. El exchange es la entidad regulada (doc 40 §2) |
 | **DT-11** | Los **avisos de inversión** van a Discord y son beneficio de tier alto, **no públicos**. Cierra D19 | 5 | La prueba es pública, la oportunidad es de pago (PG6) |
 | **DT-12** | La primera herramienta diferenciadora es la **escalera de órdenes piramidal visual** | 3 | Usa órdenes nativas: funciona con keys en cliente y sobrevive a caídas (doc 35 §2) |
 | **DT-13** | El terminal se justifica por **mejorar tu performance**, no por ahorrar suscripciones | 3 | Instrumento personal primero, producto después. Da un criterio de éxito medible vía módulo 2 |
+| **DT-15** | **Todo en inglés**: código, namespaces e interfaz pública | Todos | Convención estándar, alcance global y alineado con la cultura del sector |
+| **DT-16** | Nombres: **Calls · Journal · Desk · Club**. El número sigue siendo el ID estable | Todos | Registro trading-native, como habla la comunidad. El módulo 4 no recibe nombre |
 | **DT-14** | **Actividad (Trading / Investing) es dimensión de primera clase** en los módulos 1, 2 y 3 | 1+2+3 | Derivada de DT-13: son disciplinas con horizontes y R incomparables. Mezclarlas da métricas falsas (PG7). Barata ahora, migración después |
 
 ---
@@ -48,7 +50,7 @@
 | **D21** | Frontend: **Astro o React** | 1 | Medio — Astro favorece SEO y carga; React favorece el dashboard | Tú |
 | **D5** | Confianza en 3 niveles o porcentaje | 1 | Bajo — 3 niveles se captura más rápido | Tú |
 | **D6** | Dominio público del sitio | 1 | Bajo | Tú |
-| **D22** | **Nombre del programa** y de la plataforma | Todos | Bajo técnicamente, alto para marca | Tú |
+| **D22** | **Nombre del programa**: marca nueva, independiente del canal (ver §4) | Todos | Bajo técnicamente, alto para marca | Tú |
 
 ### 3.2 Bloquean las etapas 2 y 3 — módulo 5, es donde está el dinero
 
@@ -79,7 +81,7 @@
 | **D13** | Librería de charting y su licencia | 3 | Alto — **bloqueo externo, tramitar con antelación** | Tú |
 | **D12** | Qué exchanges en la etapa 5 y en qué orden | 3 | Alto — empezar por aquel donde más operas | Tú |
 | **D14** | ¿Spot, futuros, o ambos? | 3 | Alto — futuros multiplica la complejidad (margen, liquidación, funding) | Tú |
-| **D16** | ¿La etapa 5 alimenta automáticamente el ledger del módulo 2? | 2+3 | Medio — sinergia evidente, pero acopla los módulos | Tú |
+| **D16** | ¿La etapa 5 alimenta automáticamente el Journal del módulo 2? | 2+3 | Medio — sinergia evidente, pero acopla los módulos | Tú |
 
 ### 3.5 Requieren asesoría legal — no se deciden en un documento técnico
 
@@ -124,6 +126,16 @@ Para cada una bastan cuatro respuestas (doc 35 §3), y **la tercera es la que m�
 ¿usa órdenes nativas del exchange, o requiere lógica viva en servidor? Eso determina si cae
 del lado barato y seguro de D11 o del caro y arriesgado. Si resultan ser casi todas
 nativas, el módulo 3 es mucho menos arriesgado de lo que parecía.
+
+### D22 — nombre del programa
+
+Decidido que sea **marca nueva e independiente del canal** (más techo, sobrevive si el SaaS
+crece solo). Falta elegirla. Debe encajar en el registro de DT-16: corta, concreta,
+trading-native, y funcionar como paraguas sobre Calls · Journal · Desk · Club.
+
+Antes de comprometerse con cualquiera: **verificar dominio, marca registrada y colisiones en
+el sector cripto.** Ya se descartó `Openbook` por chocar con el DEX de Solana del mismo
+nombre.
 
 ### D29 — qué fallo de performance se ataca primero
 

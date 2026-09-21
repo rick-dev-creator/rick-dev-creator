@@ -17,6 +17,22 @@ aquí significan exactamente esto y nada más.
 | **Etapa** | Un incremento entregable del roadmap. Son **siete** y definen el orden de trabajo. **Se renumeran si el roadmap cambia**, a diferencia de los módulos | Etapa 5 = Módulo 3a |
 | ~~Fase~~ | **No usar.** Ambiguo entre módulo y etapa | — |
 
+### Nombres de los módulos
+
+El **número es el identificador estable**; el nombre es la etiqueta humana y de marca. Los
+dos se usan indistintamente y `Módulo 1` nunca deja de ser `Calls`.
+
+| # | Nombre | Namespace | Qué es | Público |
+|---|---|---|---|---|
+| 1 | **Calls** | `Calls` | Récord verificable de proyecciones | Sí, y gratis |
+| 2 | **Journal** | `Journal` | Registro privado de posiciones | No, solo tú |
+| 3 | **Desk** | `Desk` | Terminal multi-exchange | Sí, miembros |
+| 4 | — | — | Copy trading | **No se construye** |
+| 5 | **Club** | `Club` | Derechos y accesos de membresía | Interno |
+
+Convención de idioma (DT-15): **todo en inglés**, código e interfaz pública. El módulo 4 no
+recibe nombre porque no se construye.
+
 Un módulo puede abarcar varias etapas: el módulo 3 se entrega en las etapas 5, 6 y 7
 (3a lectura, 3b ejecución propia, 3c SaaS) y el módulo 5 en las etapas 2 y 3.
 Un módulo dice *qué*, una etapa dice *cuándo*.
@@ -33,7 +49,7 @@ Un módulo dice *qué*, una etapa dice *cuándo*.
 | **R** | Unidad de riesgo: `(target − referencia) / (referencia − invalidación)` |
 | **Resolución** | Veredicto del motor sobre una proyección: Hit, Parcial, Invalidada o Expirada |
 | **Feed de trades** | Tus operaciones **sin montos**, para miembros. Sale del módulo 3a, no del 2 |
-| **Ledger** | Registro privado de posiciones del módulo 2. No es un portfolio tracker |
+| **Journal** | El registro privado de posiciones del módulo 2. No es un portfolio tracker |
 | **Derecho** | Permiso con fuente, evidencia y caducidad que habilita accesos. Nunca un rol suelto |
 | **Tier** | Nivel de membresía. Se **deriva** de los derechos vigentes, nunca se asigna a mano |
 | **Escalera** | Conjunto de órdenes límite distribuidas en un rango, gestionado como una unidad |

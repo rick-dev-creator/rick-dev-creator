@@ -1,4 +1,6 @@
-# Módulo 1 — Proyecciones Públicas
+# Calls — Módulo 1
+
+> Récord público, inmutable y verificable de tus proyecciones de análisis técnico.
 
 > Documento conceptual. Define **qué tiene que hacer la app** y **bajo qué reglas**, no cómo se construye.
 > Las decisiones técnicas (.NET 10, Astro/React) se registran al final como restricciones conocidas,

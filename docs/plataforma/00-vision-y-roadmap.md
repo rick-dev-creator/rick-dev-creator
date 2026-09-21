@@ -6,12 +6,12 @@
 
 | Doc | Contenido |
 |---|---|
-| [10](./10-modulo-1-proyecciones.md) | Módulo 1 — Proyecciones (público, inmutable) |
-| [20](./20-modulo-2-ledger.md) | Módulo 2 — Ledger de posiciones (privado) |
-| [30](./30-modulo-3-terminal.md) | Módulo 3 — Terminal multi-exchange |
+| [10](./10-calls.md) | Módulo 1 — Proyecciones (público, inmutable) |
+| [20](./20-journal.md) | Módulo 2 — Journal de posiciones (privado) |
+| [30](./30-desk.md) | Módulo 3 — Terminal multi-exchange |
 | [35](./35-herramientas-diferenciadoras.md) | Herramientas diferenciadoras del terminal |
-| [40](./40-modulo-4-copy-trading.md) | Módulo 4 — Copy trading (futuro) |
-| [50](./50-modulo-5-membresias.md) | Módulo 5 — Membresías y accesos |
+| [40](./40-copy.md) | Módulo 4 — Copy trading (futuro) |
+| [50](./50-club.md) | Módulo 5 — Membresías y accesos |
 | [90](./90-fuentes-de-datos.md) | Fuentes de datos de mercado (transversal) |
 
 ---
@@ -97,7 +97,7 @@ entradas, salidas, gestión del stop, cuándo te sales antes de tiempo, cuándo 
 > "Entré ETH largo en 3,200, stop en 3,050, 6% del portfolio" enseña todo.
 > "Tengo $340,000 en ETH" no enseña nada y te pone en riesgo.
 
-**Resolución: el ledger del módulo 2 se queda privado. El feed de trades es una cosa
+**Resolución: el Journal del módulo 2 se queda privado. El feed de trades es una cosa
 aparte** — sin montos absolutos, con tamaño en % — y **no sale del módulo 2: sale del
 módulo 3a.**
 
@@ -136,7 +136,7 @@ volumen. **Es la etapa que activa el objetivo declarado**: mover de Patreon a fe
 sin que tú toques nada.
 
 ### Etapa 4 — Módulo 2 privado
-Ledger acotado y, sobre todo, el informe de coherencia. Barato porque no añade dependencias
+Journal acotado y, sobre todo, el informe de coherencia. Barato porque no añade dependencias
 de datos.
 **Criterio de salida:** puedes responder "¿respeté mi invalidación?" con un número.
 

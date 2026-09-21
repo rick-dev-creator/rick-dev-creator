@@ -1,4 +1,6 @@
-# Módulo 5 — Membresías y accesos
+# Club — Módulo 5
+
+> Derechos, roles de Discord y migración de Patreon a fees de afiliado.
 
 > **Módulo nuevo**, no contemplado en la planeación original. Salió al describir cómo
 > funciona hoy la comunidad y cuál es el objetivo de negocio.

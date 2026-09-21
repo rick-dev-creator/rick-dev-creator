@@ -1,4 +1,6 @@
-# Módulo 4 — Copy Trading (futuro)
+# Copy — Módulo 4
+
+> Copy trading. **No se construye** (DT-10): se delega a los exchanges.
 
 > Evaluación estratégica. **Este módulo no es una escalada de tamaño: es un cambio de
 > naturaleza legal del proyecto.** Léelo antes de invertir tiempo de ingeniería en él.
@@ -12,7 +14,7 @@ Los módulos 1 a 3 son, legalmente, cosas relativamente mansas:
 | Módulo | Qué haces | Naturaleza |
 |---|---|---|
 | 1 — Proyecciones | Publicas análisis | Publicación de contenido |
-| 2 — Ledger | Registras tus posiciones en privado | Uso personal |
+| 2 — Journal | Registras tus posiciones en privado | Uso personal |
 | 3 — Terminal | Das una herramienta; el usuario decide y ejecuta | Software |
 | **4 — Copy trading** | **Tus decisiones ejecutan en cuentas ajenas** | **Gestión discrecional** |
 

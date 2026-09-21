@@ -11,7 +11,7 @@
 Los dos módulos tienen necesidades de datos **radicalmente distintas**, y tratarlas como una
 sola fue el error a evitar:
 
-| | Módulo 1 (proyecciones) | Módulo 2 (ledger) |
+| | Módulo 1 (proyecciones) | Módulo 2 (journal) |
 |---|---|---|
 | **Necesita** | OHLC intradía hasta 5 minutos | Precio actual + cierre diario |
 | **Por qué** | Regla de desempate §5.4 y detección de toques | Solo valuar posiciones |
@@ -44,7 +44,7 @@ cuántos activos tengas, sino de cada cuánto refrescas:
 | Cada hora | ~720 | Sobra muchísimo |
 | Diario + botón manual | ~30–100 | Trivial |
 
-Para un ledger privado de auto-auditoría, **diario más refresco a demanda** es de sobra.
+Para un journal privado de auto-auditoría, **diario más refresco a demanda** es de sobra.
 
 ### Binance API (complemento para el módulo 1)
 
