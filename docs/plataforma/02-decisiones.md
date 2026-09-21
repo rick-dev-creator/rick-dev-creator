@@ -193,3 +193,22 @@ Registradas para no reabrir discusiones cerradas.
 | Construir copy trading propio | DT-10. Actividad regulada en la mayoría de jurisdicciones; los exchanges ya lo ofrecen y son la entidad regulada |
 | Automatizar TradingView por completo | Exige desactivar el 2FA de la cuenta que contiene tu propiedad intelectual, sobre endpoints no soportados (D25) |
 | El terminal justificado por ahorrar suscripciones | Una suscripción cuesta mucho menos que los meses de ingeniería. Lo que lo justifica son las herramientas propias (doc 35 §1) |
+
+---
+
+## 6. Supuestos sin verificar
+
+No son decisiones: son cosas que la planeación da por ciertas **sin haberlas comprobado**.
+Cada una, si resulta falsa, invalida parte del diseño. Ordenadas por daño potencial.
+
+| # | Supuesto | Si es falso |
+|---|---|---|
+| **S1** | **Tus proyecciones actuales ya son falsables**: dices nivel de invalidación y horizonte aproximado en el video | Calls te obliga a **cambiar cómo presentas**, no solo a registrar. Es un cambio de hábito, no de software, y es la vía más probable de que la app se abandone |
+| **S2** | Haces suficientes proyecciones por semana para que el scorecard tenga muestra en meses, no en años | D3 (histórico retroactivo) deja de ser opcional y pasa a ser obligatorio para tener un número defendible |
+| **S3** | Hay tiempo de desarrollo real para siete etapas | Hay que **recortar el alcance del módulo 1**, no solo reordenar el roadmap |
+| **S4** | La comunidad es lo bastante grande para que automatizar accesos salga a cuenta | El módulo 5 es sobreingeniería: se sigue haciendo a mano y la etapa 2 se elimina |
+| **S5** | Operas en exchanges con programa de afiliados consultable por API | El módulo 5b (etapa 3) no se puede construir tal como está descrito |
+| **S6** | Una interfaz pública en inglés no añade fricción a tu audiencia | DT-15 necesita revisarse justo en la cima del embudo, donde menos conviene |
+
+**S1 es la más peligrosa** y la más barata de comprobar: basta mirar un video reciente y ver
+si una proyección tuya cabe en los campos del doc 10 §4.3 sin inventar nada.
