@@ -134,6 +134,6 @@ se reordenan aunque cambie el roadmap.
 **Decisiones.** Viven **solo** en [02-decisiones.md](./02-decisiones.md). Los documentos de
 módulo enlazan al registro, nunca copian la tabla.
 
-**Estado.** Todos los documentos son conceptuales: describen *qué* y *por qué*, no *cómo*.
-Las decisiones técnicas se registran como restricciones, no se desarrollan. Cuando empiece
-la implementación, los documentos de arquitectura serán nuevos, no ediciones de éstos.
+**Estado.** Los documentos de módulo (`10`–`50`) son conceptuales: describen *qué* y *por
+qué*. Los documentos `03` y `04` definen la **forma** de la arquitectura —capas, límites,
+reglas— pero no su implementación. Ninguno contiene código.

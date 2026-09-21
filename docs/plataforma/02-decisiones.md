@@ -33,6 +33,12 @@
 | **DT-13** | El terminal se justifica por **mejorar tu performance**, no por ahorrar suscripciones | 3 | Instrumento personal primero, producto después. Da un criterio de éxito medible vía módulo 2 |
 | **DT-15** | **Todo en inglés**: código, namespaces e interfaz pública | Todos | Convención estándar, alcance global y alineado con la cultura del sector |
 | **DT-16** | Nombres: **Calls · Journal · Desk · Club**. El número sigue siendo el ID estable | Todos | Registro trading-native, como habla la comunidad. El módulo 4 no recibe nombre |
+| **DT-17** | **Modular monolith**, un proceso, con **Clean Architecture dentro de cada módulo** | Todos | Cinco módulos con perfiles de carga muy distintos pero un solo operador. Costuras bien puestas sin coste operativo de microservicios |
+| **DT-18** | **Orleans solo en Desk** | 3 | Es el único con estado vivo y concurrencia sobre entidades con dinero real. Los grains son adaptadores, nunca el dominio (doc 03 §5) |
+| **DT-19** | Un PostgreSQL, **un schema por módulo, sin FK entre schemas** | Todos | Es la regla que hace que la modularidad sea real y no carpetas |
+| **DT-20** | **Calls en Astro** con islas React; **Desk en React + Vite**. Cierra D21 | 1+3 | Requisitos opuestos: SEO y primer render vs densidad y latencia de interacción |
+| **DT-21** | **Expo se pospone**, no se descarta: será el móvil, no Calls ni Desk | — | RN Web no da SSR real y pelea con las librerías de charting web |
+| **DT-22** | Dirección visual **inspirada en Omarchy**: tokens en un paquete único, temas con nombre, tiling y teclado en Desk | 1+3 | Un tema coherente en todo el sistema, incluido el modo stream (doc 04 §3) |
 | **DT-14** | **Actividad (Trading / Investing) es dimensión de primera clase** en los módulos 1, 2 y 3 | 1+2+3 | Derivada de DT-13: son disciplinas con horizontes y R incomparables. Mezclarlas da métricas falsas (PG7). Barata ahora, migración después |
 
 ---
@@ -47,7 +53,6 @@
 | **D4** | ¿Cuántos targets se permiten y cómo pondera un hit parcial en R? | 1 | Medio — define la expectancy | Tú |
 | **D1** | Proveedor de datos para equities y forex | 1 | **Alto** — único coste recurrente real. Investigado en doc 90 | Tú |
 | **D2** | Exchange de referencia por símbolo crypto | 1 | Medio — afecta resoluciones en el límite | Tú |
-| **D21** | Frontend: **Astro o React** | 1 | Medio — Astro favorece SEO y carga; React favorece el dashboard | Tú |
 | **D5** | Confianza en 3 niveles o porcentaje | 1 | Bajo — 3 niveles se captura más rápido | Tú |
 | **D6** | Dominio público del sitio | 1 | Bajo | Tú |
 | **D22** | **Nombre del programa**: marca nueva, independiente del canal (ver §4) | Todos | Bajo técnicamente, alto para marca | Tú |
@@ -78,7 +83,9 @@
 | **D23** | **El resto de herramientas diferenciadoras** (ver §4) | 3 | **Alto** — es la tesis del módulo 3. Parcialmente resuelta por DT-12 | Tú |
 | **D29** | **¿Qué fallo de performance se ataca primero?** (ver §4) | 3 | **Alto** — define el MVP del módulo 3 y, de rebote, resuelve D11 | Tú |
 | **D11** | **API keys en cliente o en servidor** | 3 | **Máximo** — define el perfil de riesgo entero del SaaS | Tú + seguridad |
-| **D13** | Librería de charting y su licencia | 3 | Alto — **bloqueo externo, tramitar con antelación** | Tú |
+| **D13** | Librería de charting, su licencia **y si acepta tus tokens de tema** | 3 | Alto — **bloqueo externo, tramitar con antelación** (doc 04 §5) | Tú |
+| **D30** | Tema por defecto y cuántos se soportan al inicio | 1+3 | Bajo — pero es tu identidad visual en stream | Tú |
+| **D31** | Retención de velas de 5 minutos | MarketData | Medio — almacenamiento vs poder re-resolver el récord entero | Tú |
 | **D12** | Qué exchanges en la etapa 5 y en qué orden | 3 | Alto — empezar por aquel donde más operas | Tú |
 | **D14** | ¿Spot, futuros, o ambos? | 3 | Alto — futuros multiplica la complejidad (margen, liquidación, funding) | Tú |
 | **D16** | ¿La etapa 5 alimenta automáticamente el Journal del módulo 2? | 2+3 | Medio — sinergia evidente, pero acopla los módulos | Tú |

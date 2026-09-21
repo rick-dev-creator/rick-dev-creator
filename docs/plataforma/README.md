@@ -14,6 +14,8 @@ YouTube en una comunidad que verifica tu análisis, ve cómo operas y usa tus he
 | **00** | [Visión y roadmap](./00-vision-y-roadmap.md) | **Empieza aquí.** El embudo, la secuencia en siete etapas y los riesgos del programa |
 | 01 | [Convenciones](./01-convenciones.md) | Vocabulario y principios transversales |
 | 02 | [Decisiones](./02-decisiones.md) | Registro único: lo decidido, lo abierto y lo descartado |
+| 03 | [Arquitectura](./03-arquitectura.md) | Modular monolith, Clean Architecture por módulo, dónde va Orleans |
+| 04 | [Frontend](./04-frontend.md) | Stack, sistema de diseño y la lección de Omarchy |
 | 10 | [Calls — Módulo 1](./10-calls.md) | Récord público, inmutable y auditable de tu análisis técnico |
 | 20 | [Journal — Módulo 2](./20-journal.md) | Registro privado de posiciones para auto-diagnóstico |
 | 30 | [Desk — Módulo 3](./30-desk.md) | Terminal multi-exchange y el SaaS |
