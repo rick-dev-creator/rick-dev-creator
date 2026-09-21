@@ -36,7 +36,7 @@
 | **DT-17** | **Modular monolith**, un proceso, con **Clean Architecture dentro de cada módulo** | Todos | Cinco módulos con perfiles de carga muy distintos pero un solo operador. Costuras bien puestas sin coste operativo de microservicios |
 | **DT-18** | **Orleans solo en Desk** | 3 | Es el único con estado vivo y concurrencia sobre entidades con dinero real. Los grains son adaptadores, nunca el dominio (doc 03 §5) |
 | **DT-19** | Un PostgreSQL, **un schema por módulo, sin FK entre schemas** | Todos | Es la regla que hace que la modularidad sea real y no carpetas |
-| **DT-20** | **Calls en Astro** con islas React; **Desk en React + Vite**. Cierra D21 | 1+3 | Requisitos opuestos: SEO y primer render vs densidad y latencia de interacción |
+| **DT-20** | **Calls en Astro** con islas React; **Desk en React + Vite + TanStack Router/Query**, SPA sin servidor JS. Cierra D21 | 1+3 | Requisitos opuestos. Y el backend .NET ya existe: la capa de servidor de un meta-framework JS sería un segundo sitio donde vive lógica (doc 04 §2) |
 | **DT-21** | **Expo se pospone**, no se descarta: será el móvil, no Calls ni Desk | — | RN Web no da SSR real y pelea con las librerías de charting web |
 | **DT-22** | Dirección visual **inspirada en Omarchy**: tokens en un paquete único, temas con nombre, tiling y teclado en Desk | 1+3 | Un tema coherente en todo el sistema, incluido el modo stream (doc 04 §3) |
 | **DT-14** | **Actividad (Trading / Investing) es dimensión de primera clase** en los módulos 1, 2 y 3 | 1+2+3 | Derivada de DT-13: son disciplinas con horizontes y R incomparables. Mezclarlas da métricas falsas (PG7). Barata ahora, migración después |

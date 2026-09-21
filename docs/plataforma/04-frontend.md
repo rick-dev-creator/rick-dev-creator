@@ -23,31 +23,90 @@ que se sientan el mismo producto.
 
 ## 2. Stack — resuelve D21
 
-### Calls → **Astro con islas React**
+### El criterio que descarta media lista
 
-Estático o incremental por defecto, JavaScript solo donde hace falta (los filtros del
-scorecard, los gráficos). Es lo que da el mejor tiempo hasta el primer render, el mejor SEO
-y las páginas más ligeras — que importa porque **es la cima del embudo**: la página que ve
-alguien que aún no confía en ti, muchas veces desde el móvil y con mala conexión.
+**Ya tienes backend.** El dominio vive en .NET (doc 03), y eso elimina de golpe el
+principal valor que aportan los meta-frameworks de JavaScript: su capa de servidor.
 
-### Desk → **React con Vite, aplicación de una página**
+Next.js, TanStack Start o Nuxt brillan cuando el framework **es** tu backend: server
+components, server actions, rutas de API. Con un modular monolith en .NET detrás, esa capa
+no es una ventaja, es **un segundo sitio donde puede acabar viviendo lógica de negocio** —
+justo lo que DT-17 y las reglas de independencia de módulos intentan evitar.
 
-Densa, con estado en cliente, canvas, atajos de teclado y websockets. Aquí el SEO es
-irrelevante y la latencia de interacción lo es todo.
+Así que la pregunta no es "¿qué meta-framework?", sino:
 
-### Expo — no para esto, sí para después
+- **Calls** necesita HTML rápido y bien indexado → generador de sitios.
+- **Desk** necesita una SPA que habla con tu API → router y capa de datos, sin servidor JS.
 
-Lo usas hoy, así que conviene ser explícito sobre por qué no encaja en ninguno de los dos:
+### Calls → **Astro** con islas React
 
-- **Para Calls**: React Native Web no da SSR real ni SEO, y arrastra un bundle que penaliza
-  justo la métrica que más importa en la página pública.
-- **Para Desk**: pelea contra el ecosistema. Las librerías de charting de trading —incluida
-  la de TradingView (D13)— son web primero y esperan DOM y canvas. Arrastrar precios con
-  precisión sobre un gráfico es exactamente donde React Native Web se rompe.
+Content-heavy con interactividad selectiva es exactamente su caso. Los números son
+contundentes: en sitios comparables, Astro envía del orden de **9 KB de JS frente a ~460 KB**
+de un equivalente en Next, y gana en Core Web Vitals por defecto porque compila a HTML en
+vez de ejecutar un render de React por página.
 
-**Pero Expo es la elección correcta para el móvil**, que está fuera de alcance hoy (doc 10
-§10) y que un día querrás: consultar el récord, recibir avisos del Club, ver posiciones. Ese
-día, Expo consume la misma API y los mismos tokens. **No se descarta: se pospone.**
+Eso importa aquí más que en un sitio cualquiera: **Calls es la página que ve alguien que
+todavía no confía en ti**, muchas veces desde el móvil y con mala conexión. Es la cima del
+embudo.
+
+Las **Server Islands** (Astro 5) cubren la parte que sí es dinámica —el progreso de las
+proyecciones activas hacia su target— sin renunciar a que el resto sea estático.
+
+### Desk → **React + Vite + TanStack Router + TanStack Query**
+
+SPA pura, sin servidor JS, hablando con la API de .NET.
+
+- **TanStack Router** da rutas y **search params tipados y validados por esquema**. Para un
+  terminal eso no es un detalle: convierte el estado de la pantalla en URL compartible y
+  restaurable — `?symbol=BTCUSDT&layout=ladder&tf=4h`. Encaja con el diseño conducido por
+  teclado y con el tiling: cada disposición es un enlace.
+- **TanStack Query** para el estado del servidor: caché, revalidación, reintentos.
+- **Vite** para el desarrollo.
+
+**TanStack Start alcanzó v1.0 estable en marzo de 2026** y sería la elección si necesitaras
+SSR. No lo necesitas: Desk va detrás de login y el SEO es irrelevante. Usar Start aquí sería
+pagar una capa de servidor que ya tienes en .NET.
+
+### Por qué React y no Solid o Svelte
+
+Es la alternativa más seria y merece respuesta honesta. Solid y Svelte 5 tienen reactividad
+de grano fino, que **en teoría encaja mejor con datos que llegan decenas de veces por
+segundo** — el caso de un terminal.
+
+No los elijo por tres razones:
+
+1. **El camino caliente no debe pasar por el framework, sea cual sea.** Ticks de precio,
+   libro de órdenes y overlays del gráfico se escriben directo a canvas o DOM. Así se
+   construyen los terminales reales, y con esa disciplina la ventaja de reactividad se
+   aplica solo a la parte fría, donde no importa.
+2. **Ecosistema de tablas densas.** TanStack Table y AG Grid son React primero, y Desk está
+   lleno de tablas densas.
+3. **Ya trabajas en React** (Expo), y el móvil futuro lo reutiliza.
+
+Elegir Solid para evitar la disciplina del punto 1 cambia un problema conocido y resoluble
+por riesgo de ecosistema. No sale a cuenta.
+
+### Forma del repositorio
+
+```
+apps/
+├── calls          Astro + islas React
+├── desk           React + Vite + TanStack
+└── mobile         Expo (después, DT-21)
+packages/
+├── tokens         variables CSS: color, tipografía, espaciado. Framework-agnóstico
+└── ui             componentes React compartidos por calls y desk
+```
+
+**Los tokens son variables CSS**, no un objeto de JavaScript. Es lo que permite que Astro,
+React y un día Expo consuman el mismo tema sin adaptadores, y lo que hace real el P1 de §3.
+
+### Gráficos: dos necesidades distintas
+
+No fuerces una sola librería. **Calls** necesita gráficos de reporte —curva de equity,
+barras de hit rate, calibración— que pide una librería ligera. **Desk** necesita gráfico de
+velas con interacción y overlays de órdenes, que es la decisión D13 y es de otro orden.
+Ambas deben seguir los tokens.
 
 ---
 
