@@ -36,7 +36,7 @@
 | **DT-17** | **Modular monolith**, un proceso, con **Clean Architecture dentro de cada módulo** | Todos | Cinco módulos con perfiles de carga muy distintos pero un solo operador. Costuras bien puestas sin coste operativo de microservicios |
 | **DT-18** | **Orleans solo en Desk** | 3 | Es el único con estado vivo y concurrencia sobre entidades con dinero real. Los grains son adaptadores, nunca el dominio (doc 03 §5) |
 | **DT-19** | Un PostgreSQL, **un schema por módulo, sin FK entre schemas** | Todos | Es la regla que hace que la modularidad sea real y no carpetas |
-| **DT-20** | **Calls en Astro** con islas React; **Desk en React + Vite + TanStack Router/Query**, SPA sin servidor JS. Cierra D21 | 1+3 | Requisitos opuestos. Y el backend .NET ya existe: la capa de servidor de un meta-framework JS sería un segundo sitio donde vive lógica (doc 04 §2) |
+| **DT-20** | **Un solo stack: TanStack Start v1** (React + Vite). Calls prerenderizado, Desk con `ssr: false`. **Sin server functions.** Cierra D21 | 1+3 | SSR selectivo por ruta cubre los dos perfiles en un proyecto. Un equipo pequeño paga dos stacks cada semana; el ahorro de KB en la pública se cobra una vez (doc 04 §1) |
 | **DT-21** | **Expo se pospone**, no se descarta: será el móvil, no Calls ni Desk | — | RN Web no da SSR real y pelea con las librerías de charting web |
 | **DT-22** | Dirección visual **inspirada en Omarchy**: tokens en un paquete único, temas con nombre, tiling y teclado en Desk | 1+3 | Un tema coherente en todo el sistema, incluido el modo stream (doc 04 §3) |
 | **DT-14** | **Actividad (Trading / Investing) es dimensión de primera clase** en los módulos 1, 2 y 3 | 1+2+3 | Derivada de DT-13: son disciplinas con horizontes y R incomparables. Mezclarlas da métricas falsas (PG7). Barata ahora, migración después |
@@ -189,6 +189,7 @@ Registradas para no reabrir discusiones cerradas.
 | Portfolio público (con o sin montos) | Expone patrimonio, agrava el perfil regulatorio y exige verificación on-chain para valer algo. Sustituido por el feed de trades del módulo 3a, que sí es verificable |
 | Leer el portfolio desde la API de CoinGecko | **No existe ese endpoint.** La API sirve datos de mercado, no holdings de usuario (doc 90 §2) |
 | Alpha Vantage como proveedor de datos | 25 llamadas/día en el plan gratuito. Inservible (doc 90 §3) |
+| **Dos stacks de frontend** (Astro + React por separado) | Optimizaba los KB de la página pública a costa de dos builds, dos sets de dependencias y una librería de componentes que no se comparte. Mal negocio para un equipo pequeño |
 | Estado "Superseded" para proyecciones | Sería la puerta trasera para retirar las perdedoras antes de que fallen (doc 10 §4.4) |
 | Construir copy trading propio | DT-10. Actividad regulada en la mayoría de jurisdicciones; los exchanges ya lo ofrecen y son la entidad regulada |
 | Automatizar TradingView por completo | Exige desactivar el 2FA de la cuenta que contiene tu propiedad intelectual, sobre endpoints no soportados (D25) |

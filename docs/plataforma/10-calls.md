@@ -3,7 +3,7 @@
 > Récord público, inmutable y verificable de tus proyecciones de análisis técnico.
 
 > Documento conceptual. Define **qué tiene que hacer la app** y **bajo qué reglas**, no cómo se construye.
-> Las decisiones técnicas (.NET 10, Astro/React) se registran al final como restricciones conocidas,
+> Las decisiones técnicas (.NET 10, TanStack Start) se registran al final como restricciones conocidas,
 > pero no condicionan el modelo.
 
 ---
@@ -449,7 +449,7 @@ desincronicen.
 Registradas aquí para no perderlas. Se desarrollan en el documento técnico, no en éste.
 
 - **Backend**: .NET 10.
-- **Frontend público**: Astro o React. A definir.
+- **Frontend**: TanStack Start (React + Vite), stack único. Las rutas públicas de Calls van prerenderizadas (DT-20, doc 04).
 - **Alcance de activos**: crypto, equities y forex desde el inicio (§5.5 es su consecuencia
   directa).
 - **El módulo 1 incluye** bot de Discord notificador, sin captura por Discord.

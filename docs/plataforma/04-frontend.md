@@ -5,67 +5,72 @@
 
 ---
 
-## 1. Son dos frontends, no uno
+## 1. Un solo stack, dos perfiles de ruta
 
-Calls y Desk tienen requisitos **opuestos**, y forzarlos al mismo stack perjudica a los dos:
+Calls y Desk tienen requisitos opuestos:
 
 | | **Calls** (público) | **Desk** (terminal) |
 |---|---|---|
 | Audiencia | Cualquiera, mucha desde el móvil | Tú y miembros, en escritorio |
 | Necesita | SEO, carga rápida, compartible, legible en stream | Densidad, canvas, atajos, websockets vivos |
-| Renderizado | Estático o incremental en servidor | Cliente, aplicación de una página |
+| Renderizado | **Prerenderizado** | **Cliente, sin SSR** |
 | Métrica que importa | Tiempo hasta el primer render | Latencia de interacción |
 
-No comparten layout ni renderizado. **Comparten tokens de diseño** (§3), que es lo que hace
-que se sientan el mismo producto.
+La versión anterior de este documento proponía **dos stacks** (Astro para Calls, React para
+Desk) optimizando cada perfil por separado. **Se descarta: un solo stack.**
+
+Y es la decisión correcta para el tamaño de este equipo. Dos stacks significan dos builds,
+dos conjuntos de dependencias que actualizar, dos modelos mentales, y una librería de
+componentes que en la práctica **no se comparte** —solo se comparten los tokens—. Para un
+equipo pequeño eso se paga cada semana, mientras que el beneficio (unos kilobytes menos en
+la página pública) se cobra una sola vez.
+
+Lo que sí cuesta, dicho sin adornos: **Calls enviará más JavaScript del que enviaría con
+Astro** —del orden de 9 KB frente a más de 100—. Se mitiga con prerenderizado y división de
+código por ruta, pero no desaparece. Es el precio del stack único, y es asumible.
 
 ---
 
-## 2. Stack — resuelve D21
+## 2. El stack — revisa D21
 
-### El criterio que descarta media lista
+### **TanStack Start v1** para todo
 
-**Ya tienes backend.** El dominio vive en .NET (doc 03), y eso elimina de golpe el
-principal valor que aportan los meta-frameworks de JavaScript: su capa de servidor.
+Estable desde marzo de 2026, sobre Vite y React. Cubre los dos perfiles **en el mismo
+proyecto**, que es justo lo que hace viable el stack único:
 
-Next.js, TanStack Start o Nuxt brillan cuando el framework **es** tu backend: server
-components, server actions, rutas de API. Con un modular monolith en .NET detrás, esa capa
-no es una ventaja, es **un segundo sitio donde puede acabar viviendo lógica de negocio** —
-justo lo que DT-17 y las reglas de independencia de módulos intentan evitar.
+- **Rutas de Calls → prerenderizadas.** Generación estática en build, con rastreo de enlaces
+  para cubrir el histórico de proyecciones. HTML plano, indexable, rápido.
+- **Rutas de Desk → `ssr: false`.** Sin ejecución en servidor, sin SSR del componente:
+  cliente puro, que es lo que necesita un terminal con websockets.
 
-Así que la pregunta no es "¿qué meta-framework?", sino:
+El **SSR selectivo por ruta** es una función de primera clase, no un apaño: se configura con
+la propiedad `ssr` por ruta y un `defaultSsr` global. Es literalmente el caso de uso de dos
+aplicaciones muy distintas bajo un mismo techo.
 
-- **Calls** necesita HTML rápido y bien indexado → generador de sitios.
-- **Desk** necesita una SPA que habla con tu API → router y capa de datos, sin servidor JS.
+### Por qué esta y no Next.js
 
-### Calls → **Astro** con islas React
+Next también sabe hacer ambas cosas. La diferencia está en **hacia dónde te empuja**.
 
-Content-heavy con interactividad selectiva es exactamente su caso. Los números son
-contundentes: en sitios comparables, Astro envía del orden de **9 KB de JS frente a ~460 KB**
-de un equivalente en Next, y gana en Core Web Vitals por defecto porque compila a HTML en
-vez de ejecutar un render de React por página.
+En Next con App Router, el paradigma por defecto son los server components y las server
+actions. Con un backend .NET detrás, eso es exactamente lo que no quieres: **un segundo
+sitio donde acaba viviendo lógica de negocio**, contra DT-17 y las reglas de independencia
+de módulos. No es que no puedas evitarlo — es que nadas contra la corriente del framework
+todos los días.
 
-Eso importa aquí más que en un sitio cualquiera: **Calls es la página que ve alguien que
-todavía no confía en ti**, muchas veces desde el móvil y con mala conexión. Es la cima del
-embudo.
+En TanStack Start las server functions son **opt-in explícito**. No usarlas no es luchar
+contra nada.
 
-Las **Server Islands** (Astro 5) cubren la parte que sí es dinámica —el progreso de las
-proyecciones activas hacia su target— sin renunciar a que el resto sea estático.
+Además: Vite como base, y **search params tipados y validados por esquema**, que en Desk
+convierten el estado de la pantalla en URL compartible y restaurable —
+`?symbol=BTCUSDT&layout=ladder&tf=4h`. Cada disposición de paneles es un enlace, lo que
+encaja con el tiling y con el diseño conducido por teclado.
 
-### Desk → **React + Vite + TanStack Router + TanStack Query**
+### La regla que no se rompe
 
-SPA pura, sin servidor JS, hablando con la API de .NET.
+> **No se usan server functions. La API de .NET es el único backend.**
 
-- **TanStack Router** da rutas y **search params tipados y validados por esquema**. Para un
-  terminal eso no es un detalle: convierte el estado de la pantalla en URL compartible y
-  restaurable — `?symbol=BTCUSDT&layout=ladder&tf=4h`. Encaja con el diseño conducido por
-  teclado y con el tiling: cada disposición es un enlace.
-- **TanStack Query** para el estado del servidor: caché, revalidación, reintentos.
-- **Vite** para el desarrollo.
-
-**TanStack Start alcanzó v1.0 estable en marzo de 2026** y sería la elección si necesitaras
-SSR. No lo necesitas: Desk va detrás de login y el SEO es irrelevante. Usar Start aquí sería
-pagar una capa de servidor que ya tienes en .NET.
+Escrito aquí porque es la única forma de que el stack único no se convierta, con el tiempo,
+en la grieta por donde se escapa el dominio.
 
 ### Por qué React y no Solid o Svelte
 
@@ -83,23 +88,33 @@ No los elijo por tres razones:
    lleno de tablas densas.
 3. **Ya trabajas en React** (Expo), y el móvil futuro lo reutiliza.
 
-Elegir Solid para evitar la disciplina del punto 1 cambia un problema conocido y resoluble
-por riesgo de ecosistema. No sale a cuenta.
+(TanStack Start existe también para Solid, así que esta puerta queda abierta sin cambiar de
+framework — pero la recomendación es React.)
 
 ### Forma del repositorio
 
+Una sola aplicación, dos árboles de rutas:
+
 ```
 apps/
-├── calls          Astro + islas React
-├── desk           React + Vite + TanStack
-└── mobile         Expo (después, DT-21)
+├── web                TanStack Start
+│   └── routes/
+│       ├── (public)   Calls · prerenderizado
+│       └── desk       Desk · ssr: false
+└── mobile             Expo (después, DT-21)
 packages/
-├── tokens         variables CSS: color, tipografía, espaciado. Framework-agnóstico
-└── ui             componentes React compartidos por calls y desk
+├── tokens             variables CSS. Framework-agnóstico
+└── ui                 componentes React compartidos de verdad
 ```
 
-**Los tokens son variables CSS**, no un objeto de JavaScript. Es lo que permite que Astro,
-React y un día Expo consuman el mismo tema sin adaptadores, y lo que hace real el P1 de §3.
+Con división de código por ruta, quien visita Calls **no descarga el terminal**. Y si algún
+día conviene separar en dos despliegues, es configuración, no reescritura.
+
+**Los tokens son variables CSS**, no un objeto de JavaScript: es lo que permite que el móvil
+futuro consuma el mismo tema sin adaptadores, y lo que hace real el P1 de §3.
+
+`packages/ui` gana mucho peso con esta decisión: con un solo stack, los componentes se
+comparten **de verdad** entre lo público y el terminal, no solo la paleta.
 
 ### Gráficos: dos necesidades distintas
 
