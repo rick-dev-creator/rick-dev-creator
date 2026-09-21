@@ -189,14 +189,9 @@ construir que el módulo 1, y por eso es el que se lleva el tiempo.
 
 ## 8. Decisiones abiertas
 
-| # | Decisión | Impacto |
-|---|---|---|
-| D11 | Keys en cliente o en servidor | **Máximo** — define el perfil de riesgo entero |
-| D12 | Qué exchanges en 3a y en qué orden | Alto — empezar por aquel donde más operas |
-| D13 | Librería de charting y su licencia | Alto — bloqueo externo, tramitar ya |
-| D14 | ¿Spot, futuros, o ambos? | Alto — futuros multiplica la complejidad (margen, liquidación, funding) |
-| D15 | Jurisdicción de la entidad que opera el SaaS | Alto — determina el marco regulatorio; requiere abogado |
-| D16 | ¿3a alimenta automáticamente el ledger del módulo 2? | Medio — sinergia evidente, pero acopla los módulos |
+Las decisiones abiertas de este módulo (D11–D16) viven en el registro único:
+**[02-decisiones.md](./02-decisiones.md)**. No se duplican aquí para que no se
+desincronicen.
 
 ---
 

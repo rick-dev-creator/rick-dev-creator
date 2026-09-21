@@ -1,7 +1,7 @@
 # Módulo 2 — Ledger de Posiciones (privado)
 
-> Documento conceptual. Depende de [01-concepto-y-dominio.md](./01-concepto-y-dominio.md).
-> Fuentes de precios en [03-fuentes-de-datos.md](./03-fuentes-de-datos.md).
+> Documento conceptual. Depende de [10-modulo-1-proyecciones.md](./10-modulo-1-proyecciones.md).
+> Fuentes de precios en [90-fuentes-de-datos.md](./90-fuentes-de-datos.md).
 
 ---
 
@@ -164,7 +164,7 @@ reutiliza la capa de datos de mercado del módulo 1 y consume su camino más bar
 - **Moneda de reporte única** (USD o MXN, a decidir). Las posiciones en otra divisa se
   convierten con tipo de cambio diario.
 
-Fuentes concretas y sus límites: ver [03-fuentes-de-datos.md](./03-fuentes-de-datos.md).
+Fuentes concretas y sus límites: ver [90-fuentes-de-datos.md](./90-fuentes-de-datos.md).
 
 ---
 
@@ -204,25 +204,16 @@ Eso refuerza el récord público del módulo 1 y no expone nada: ni montos, ni a
 patrimonio. Por eso el tamaño va en % (§4.2) y por eso las métricas se calculan como
 agregados derivados, separados del ledger crudo.
 
-**No se construye nada de esto en fase 2.** Solo se evita cerrarse la puerta, que hoy
+**No se construye nada de esto en el módulo 2.** Solo se evita cerrarse la puerta, que hoy
 cuesta cero y después cuesta una migración.
 
 ---
 
 ## 9. Decisiones abiertas
 
-| # | Decisión | Impacto |
-|---|---|---|
-| D7 | Moneda de reporte: USD o MXN | Medio — si es MXN, toda posición necesita conversión FX diaria |
-| D8 | ¿Se registran posiciones parciales (entradas y salidas escalonadas)? | **Alto** — es la única complejidad que podría justificarse; duplica el modelo |
-| D9 | ¿El % del portfolio se captura a mano o se deriva de un valor total declarado? | Medio — a mano es más simple y evita rastrear depósitos y retiros |
-| D10 | ¿Se importa histórico de posiciones pasadas? | Bajo — al ser privado, no hay problema de credibilidad |
-
-**D8 es la que hay que vigilar.** Las entradas escalonadas son reales en trading, pero
-soportarlas obliga a precio promedio ponderado, cierres parciales y R por tramo. Es la
-puerta por la que entra toda la complejidad del portfolio tracker que este documento
-descarta. Recomendación: **fase 2 sin parciales**, una posición es una entrada y una salida.
-Si al usarlo resulta insuficiente, se añade con datos reales de por medio.
+Las decisiones abiertas de este módulo (D7–D10) viven en el registro único:
+**[02-decisiones.md](./02-decisiones.md)**. No se duplican aquí para que no se
+desincronicen.
 
 ---
 

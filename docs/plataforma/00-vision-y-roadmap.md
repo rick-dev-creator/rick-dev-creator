@@ -1,14 +1,16 @@
 # Visión y Roadmap
 
-> Documento raíz. Lee este primero; los demás desarrollan cada módulo.
+> Documento raíz del programa. Índice completo en [README.md](./README.md);
+> vocabulario en [01-convenciones.md](./01-convenciones.md); decisiones en
+> [02-decisiones.md](./02-decisiones.md).
 
 | Doc | Contenido |
 |---|---|
-| [01](./01-concepto-y-dominio.md) | Módulo 1 — Proyecciones (público, inmutable) |
-| [02](./02-modulo-2-ledger-de-posiciones.md) | Módulo 2 — Ledger de posiciones (privado) |
-| [03](./03-fuentes-de-datos.md) | Fuentes de datos de mercado (transversal) |
-| [04](./04-modulo-3-terminal.md) | Módulo 3 — Terminal multi-exchange |
-| [05](./05-modulo-4-copy-trading.md) | Módulo 4 — Copy trading (futuro) |
+| [10](./10-modulo-1-proyecciones.md) | Módulo 1 — Proyecciones (público, inmutable) |
+| [20](./20-modulo-2-ledger.md) | Módulo 2 — Ledger de posiciones (privado) |
+| [30](./30-modulo-3-terminal.md) | Módulo 3 — Terminal multi-exchange |
+| [40](./40-modulo-4-copy-trading.md) | Módulo 4 — Copy trading (futuro) |
+| [90](./90-fuentes-de-datos.md) | Fuentes de datos de mercado (transversal) |
 
 ---
 
@@ -81,7 +83,7 @@ siguiente.
 
 ### Etapa 1 — Módulo 1 en producción `← empezar aquí`
 Proyecciones públicas, motor de resolución, scorecard, modo stream, bot notificador.
-Validado con crypto primero (doc 03 §5).
+Validado con crypto primero (doc 90 §5).
 **Criterio de salida:** lo usas en tus lives y el récord crece solo cada semana.
 
 ### Etapa 2 — Módulo 2 privado
@@ -105,7 +107,7 @@ convierte en empresa.** Requiere asesoría legal previa.
 
 ### Módulo 4 — probablemente no se construye
 Hazte *master trader* en el copy trading nativo de los exchanges con los que ya tienes
-partnership. Mismo beneficio, cero riesgo legal, cero ingeniería (doc 05 §2).
+partnership. Mismo beneficio, cero riesgo legal, cero ingeniería (doc 40 §2).
 
 ---
 
@@ -148,7 +150,7 @@ herramientas son el motivo real por el que alguien vendría, entonces:
 
 1. Cerrar las decisiones abiertas del módulo 1: D1 (proveedor de datos), D3 (histórico
    retroactivo), D4 (targets y hit parcial).
-2. Hacer el ejercicio del doc 01 §13.1: **resolver a mano 10 proyecciones reales pasadas**
+2. Hacer el ejercicio del doc 10 §13.1: **resolver a mano 10 proyecciones reales pasadas**
    con las reglas de resolución. Ahí salen todos los huecos del modelo, y salen gratis.
 3. Escribir el documento de las herramientas diferenciadoras del §4.
 

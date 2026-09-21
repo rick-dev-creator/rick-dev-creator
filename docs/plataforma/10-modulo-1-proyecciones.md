@@ -1,4 +1,4 @@
-# Projections Tracker — Fase 1: Concepto y Dominio
+# Módulo 1 — Proyecciones Públicas
 
 > Documento conceptual. Define **qué tiene que hacer la app** y **bajo qué reglas**, no cómo se construye.
 > Las decisiones técnicas (.NET 10, Astro/React) se registran al final como restricciones conocidas,
@@ -12,8 +12,10 @@ Llevar un **récord histórico, público y auditable** del análisis técnico qu
 semanalmente en YouTube, de forma que cualquier tercero pueda verificar, sin confiar en el
 analista, qué se dijo, cuándo se dijo, y si resultó correcto.
 
-No es una app de trading. No da señales, no ejecuta órdenes, no gestiona portafolio.
-Es un **sistema de registro y calificación de predicciones**.
+No es una app de trading: **dentro de este módulo** no hay señales, ni ejecución de
+órdenes, ni gestión de portafolio. Eso vive en los módulos 2 y 3 (ver
+[00-vision-y-roadmap.md](./00-vision-y-roadmap.md)). El módulo 1 es un **sistema de
+registro y calificación de predicciones**, y nada más.
 
 ### El problema real que resuelve
 
@@ -24,7 +26,7 @@ contrario porque no existe el registro.
 La app existe para hacer ese registro **imposible de manipular**. Ese es el producto.
 Un tracker editable no vale nada; uno inmutable vale mucho.
 
-### Criterios de éxito de la fase 1
+### Criterios de éxito
 
 1. Registrar una proyección toma **menos de 2 minutos**. Si toma más, se abandona el hábito.
 2. El **90%+ de las proyecciones se resuelven solas**, sin intervención humana.
@@ -138,7 +140,7 @@ Candle (serie temporal)
 
 ### 4.2 Tipos de proyección
 
-No todo el TA es "compro aquí, vendo allá". Fase 1 soporta tres formas, cada una con su
+No todo el TA es "compro aquí, vendo allá". El módulo 1 soporta tres formas, cada una con su
 propia lógica de resolución:
 
 | Tipo | Afirma | Se resuelve con |
@@ -412,7 +414,7 @@ Sin captura de datos. Solo anuncia, con enlace al detalle público:
 
 ---
 
-## 10. Fuera del alcance de la fase 1
+## 10. Fuera del alcance del módulo 1
 
 Se excluye explícitamente para proteger el criterio de "presentable en el próximo live":
 
@@ -429,14 +431,9 @@ Se excluye explícitamente para proteger el criterio de "presentable en el próx
 
 ## 11. Decisiones abiertas
 
-| # | Decisión | Impacto |
-|---|---|---|
-| D1 | Proveedor(es) de datos de mercado para equities y forex | Alto — costo recurrente y fiabilidad del motor. Investigado en [03-fuentes-de-datos.md](./03-fuentes-de-datos.md) |
-| D2 | Exchange de referencia para cada símbolo crypto | Medio — afecta resoluciones en el límite |
-| D3 | ¿Se importa histórico retroactivo, o el récord arranca limpio? | Alto — credibilidad del número principal |
-| D4 | ¿Cuántos targets se permiten y cómo se pondera un hit parcial en R? | Medio — define la expectancy |
-| D5 | ¿Confianza en 3 niveles o porcentaje? | Bajo — 3 niveles se captura más rápido |
-| D6 | Dominio público del sitio | Bajo |
+Las decisiones abiertas de este módulo (D1–D6) viven en el registro único:
+**[02-decisiones.md](./02-decisiones.md)**. No se duplican aquí para que no se
+desincronicen.
 
 ---
 
@@ -448,7 +445,7 @@ Registradas aquí para no perderlas. Se desarrollan en el documento técnico, no
 - **Frontend público**: Astro o React. A definir.
 - **Alcance de activos**: crypto, equities y forex desde el inicio (§5.5 es su consecuencia
   directa).
-- **Fase 1 incluye** bot de Discord notificador, sin captura por Discord.
+- **El módulo 1 incluye** bot de Discord notificador, sin captura por Discord.
 - La inmutabilidad de §P2 encaja de forma natural con un modelo append-only /
   event-sourced, pero el volumen esperado (~5-20 proyecciones/semana) no lo exige. La
   decisión queda abierta.

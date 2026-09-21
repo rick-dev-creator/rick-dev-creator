@@ -106,7 +106,7 @@ día. No son precios negociables ni tienen intradía.
   porque cubre ambas clases en una sola integración; el tier gratuito (800/día) alcanza
   para desarrollar y validar el motor antes de pagar nada.
 
-Esto refuerza la recomendación del documento 01 §13.3: **construye y valida el motor de
+Esto refuerza la recomendación del doc 10 §13.3: **construye y valida el motor de
 resolución con crypto**, donde los datos son gratuitos, limpios y continuos. Habilita
 acciones y forex cuando el motor esté probado, que es también cuando tendrás claro qué plan
 de pago necesitas — en vez de adivinarlo hoy.

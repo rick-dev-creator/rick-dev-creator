@@ -83,7 +83,7 @@ enviar** sigue del lado de la señal, no de la ejecución.
 
 Eso cubre gran parte del valor percibido de copy trading —"quiero ver y seguir lo que hace
 Rick"— sin convertirte en gestor de carteras. Y se apoya directamente en el módulo 3a
-(§6 del documento 04), que ya lee tus posiciones reales de los exchanges.
+(§6 del doc 30), que ya lee tus posiciones reales de los exchanges.
 
 **El matiz que no puedes ignorar:** cuanto más automático y menos deliberado sea ese paso
 de confirmación, más se parece a ejecución a ojos de un regulador. Un botón que el usuario
@@ -110,12 +110,9 @@ otro nombre. La fricción ahí es una característica de cumplimiento, no un def
 
 ## 5. Decisiones abiertas
 
-| # | Decisión | Impacto |
-|---|---|---|
-| D17 | ¿Master trader nativo o construcción propia? | **Máximo** — recomendación fuerte: nativo |
-| D18 | Jurisdicción y asesoría legal | **Bloqueante** para cualquier opción propia |
-| D19 | ¿Feed de señales en el terminal (§3)? | Alto — es el punto medio con mejor relación valor/riesgo |
-| D20 | Divulgación del reparto de fees | Alto — obligatoria en cualquier escenario |
+Las decisiones abiertas de este módulo (D17–D20) viven en el registro único:
+**[02-decisiones.md](./02-decisiones.md)**. No se duplican aquí para que no se
+desincronicen.
 
 ---
 
