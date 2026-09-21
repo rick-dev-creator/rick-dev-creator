@@ -16,6 +16,7 @@ YouTube en una comunidad que verifica tu análisis, ve cómo operas y usa tus he
 | 02 | [Decisiones](./02-decisiones.md) | Registro único: lo decidido, lo abierto y lo descartado |
 | 03 | [Arquitectura](./03-arquitectura.md) | Modular monolith, Clean Architecture por módulo, dónde va Orleans |
 | 04 | [Frontend](./04-frontend.md) | Stack, sistema de diseño y la lección de Omarchy |
+| **05** | [Los módulos](./05-modulos.md) | **Ficha por módulo: función, objetivo y qué se espera.** La capa de arriba |
 | 10 | [Calls — Módulo 1](./10-calls.md) | Récord público, inmutable y auditable de tu análisis técnico |
 | 20 | [Journal — Módulo 2](./20-journal.md) | Registro privado de posiciones para auto-diagnóstico |
 | 30 | [Desk — Módulo 3](./30-desk.md) | Terminal multi-exchange y el SaaS |
@@ -24,7 +25,7 @@ YouTube en una comunidad que verifica tu análisis, ve cómo operas y usa tus he
 | 50 | [Club — Módulo 5](./50-club.md) | Derechos, roles de Discord y migración de Patreon a fees |
 | 90 | [Fuentes de datos](./90-fuentes-de-datos.md) | Proveedores de precios y sus límites, para los módulos 1 y 2 |
 
-Si solo vas a leer dos: **00** y **02**.
+Si solo vas a leer dos: **00** y **05**. Para saber qué falta decidir: **02**.
 
 ---
 

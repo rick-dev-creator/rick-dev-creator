@@ -1,6 +1,7 @@
 # Visión y Roadmap
 
-> Documento raíz del programa. Índice completo en [README.md](./README.md);
+> Documento raíz del programa. Ficha de cada módulo en [05-modulos.md](./05-modulos.md);
+> índice completo en [README.md](./README.md);
 > vocabulario en [01-convenciones.md](./01-convenciones.md); decisiones en
 > [02-decisiones.md](./02-decisiones.md).
 
