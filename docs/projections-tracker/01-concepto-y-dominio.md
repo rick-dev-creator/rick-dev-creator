@@ -431,7 +431,7 @@ Se excluye explícitamente para proteger el criterio de "presentable en el próx
 
 | # | Decisión | Impacto |
 |---|---|---|
-| D1 | Proveedor(es) de datos de mercado para equities y forex | Alto — costo recurrente y fiabilidad del motor |
+| D1 | Proveedor(es) de datos de mercado para equities y forex | Alto — costo recurrente y fiabilidad del motor. Investigado en [03-fuentes-de-datos.md](./03-fuentes-de-datos.md) |
 | D2 | Exchange de referencia para cada símbolo crypto | Medio — afecta resoluciones en el límite |
 | D3 | ¿Se importa histórico retroactivo, o el récord arranca limpio? | Alto — credibilidad del número principal |
 | D4 | ¿Cuántos targets se permiten y cómo se pondera un hit parcial en R? | Medio — define la expectancy |
